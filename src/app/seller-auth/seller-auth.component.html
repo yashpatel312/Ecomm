@@ -1,0 +1,49 @@
+<div *ngIf="!showLogin"  class="container">
+  <h1 class="text-center">Sign Up</h1>
+  <form   #seller="ngForm" (ngSubmit)="onSubmit(seller.value)">
+    <div class="mb-3">
+      <label for="exampleInputText" class="form-label">Your Username</label>
+      <input [(ngModel)]="input" type="text" class="form-control" id="exampleInputText" name="input">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input [(ngModel)]="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" autocomplete="off">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input [(ngModel)]="password" type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <h5>If you already have account kindly <a (click)="isLogin()" class="login">Login</a></h5>
+  </form>
+</div>
+
+
+<div *ngIf="showLogin" class="container">
+  <h1 class="text-center">Login</h1>
+  <p class="text-center">{{authError}}</p>
+  <form #sellerLogin="ngForm" (ngSubmit)="onSubmitLogin(sellerLogin.value)">
+    <div class="mb-3">
+      <label for="exampleInputText" class="form-label">Your Username</label>
+      <input [(ngModel)]="input"   type="text" class="form-control" id="exampleInputText" name="input">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input [(ngModel)]="password"  type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <h5>If you dont have  account kindly <a (click)="isSignUp()" class="login">SignUp</a></h5>
+  </form>
+</div>
+
+
+
+
